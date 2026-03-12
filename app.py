@@ -18,9 +18,11 @@ CATEGORY_INFO = {0: ("Good","🟢","#2E7D32","Air quality is satisfactory. Safe 
 @st.cache_resource
 def load_models():
     reg  = joblib.load('best_regression_model.pkl')
-clf  = joblib.load('best_classification_model.pkl')
-prep = joblib.load('preprocessor.pkl')
+    clf  = joblib.load('best_classification_model.pkl')
+    prep = joblib.load('preprocessor.pkl')
     return reg, clf, prep
+
+reg_model, clf_model, preprocessor = load_models()
 
 reg_model, clf_model, preprocessor = load_models()
 
@@ -98,3 +100,4 @@ if st.button("🔮 Predict Tomorrow's AQI", use_container_width=True, type="prim
 
 st.divider()
 st.markdown("<div style='text-align:center;color:gray;font-size:13px'>🌫️ AirSight | ML Project | EPA AirData 2024 | 54 US States & Territories</div>", unsafe_allow_html=True)
+
